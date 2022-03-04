@@ -3,6 +3,7 @@ let connect = mysql.createConnection({
    host:'192.168.64.2',
    user: 'Affou',
    password:'12345',
-   database:'projet_crud'
-})
+   database:'test'
+});
+
 module.exports=connect;
