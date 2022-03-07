@@ -1,4 +1,4 @@
-const connect = require("./connexion");
+/*const connect = require("./connexion");
 
 
 const userQuery= class{
@@ -22,4 +22,4 @@ const userQuery= class{
 
 }
 
-module.exports=userQuery;
+module.exports=userQuery;*/

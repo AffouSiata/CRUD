@@ -2,6 +2,27 @@ const { request,response } = require("express");
 const connect = require("../connexion");
 
 const controlle = class{
+
+    static inserer = (req=request,res=response) =>{
+        let {nom,prenom,email,password,numero} = data;
+        console.log(data);
+      
+        let requete = "INSERT INTO utilisateurs (nom, prenom, email, password, numero) VALUES(?,?,?,?,?)";
+
+        connect.query(requete,[nom,prenom,email,password,numero],function(error,res){
+            if(error){
+                console.log(error);
+                return{erreur:error}
+            }
+            else{
+                console.log('connecté');
+                // return{success:res}
+        
+        }
+         })
+
+    };
+   
     static azert =(req=request,res=response)=>{
         
             connect.query('SELECT * FROM utilisateurs', function(error,resultat,fields){
@@ -19,7 +40,7 @@ const controlle = class{
             })
            
         
-    }
+    };
     static index =(req=request,res=response)=>{
         
         connect.query('SELECT * FROM utilisateurs', function(error,resultat,fields){
@@ -34,26 +55,7 @@ const controlle = class{
         })
     }    
 
-    static inserer = (data) =>{
-            let {nom,prenom,email,password,numero} = data;
-            console.log(data);
-          
-            let requete = "INSERT INTO utilisateurs (nom, prenom, email, password, numero) VALUES(?,?,?,?,?)";
     
-            connect.query(requete,[nom,prenom,email,password,numero],function(error,res){
-                if(error){
-                    console.log(error);
-                    return{erreur:error}
-                }
-                else{
-                    console.log('connecté');
-                    // return{success:res}
-            
-            }
-             })
-    
-    };
-       
     
 
    
