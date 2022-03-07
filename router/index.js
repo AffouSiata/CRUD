@@ -42,19 +42,3 @@ module.exports = router;
 // })
 
 
-// router.get('/delete/:id',)
-
-// router.get('/edit/:id',function(req,res,next){
-//     connect.query("SELECT * FROM utilisateurs WHERE id = ?" ,req.query.id, function(error,resultat,fields){
-//         res.render('formulaire',{Element:resultat}) 
-//     })
-// })
-// router.post('/edit/:id',function(req,res,next){
-//     let params= [
-//         req.body,
-//         req.query.id
-//     ]
-//     connect.query('UPDATE  utilisateurs SET status = ? WHERE id = ?',params, function(error,resultat,fields){
-//         res.redirect('/index');
-//     })
-// })

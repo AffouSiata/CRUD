@@ -1,10 +1,12 @@
 const express = require('express');
 const app = express();
 const index  = require('./router/index');
-const routerforme = require("./router/formulaire");
+const routerforme = require('./router/formulaire');
 const db = require('./connexion');
 const { check } = require('express-validator');
 const routerinser = require('./router/inserer')
+// const routesupp= require('./router/supprimer')
+// const routemodi = require('./router/modifie')
 
 
 
@@ -31,6 +33,8 @@ db.connect((error)=>{
         app.use('/', index);
         app.use('/formulaire', routerforme);
         app.use('/inserer', routerinser);
+        // app.use('/supprimer', routesupp);
+        // app.use('/modofie', routemodi);
 
     }
 });
@@ -69,5 +73,5 @@ db.connect((error)=>{
 
 
 
-app.listen(5000,()=>console.log(`listening  on port 5000`));
+app.listen(3000,()=>console.log(`listening  on port 3000`));
 

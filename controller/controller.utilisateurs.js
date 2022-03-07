@@ -10,18 +10,18 @@ const controlle = class{
         let requete = "INSERT INTO utilisateurs (nom, prenom, email, password, numero) VALUES(?,?,?,?,?)";
 
         connect.query(requete,[nom,prenom,email,password,numero],function(error,res){
+
             if(error){
                 console.log(error);
-                return{erreur:error}
+                return{error:error}
             }
             else{
                 console.log('connecté');
-                // return{success:res}
+                return{success:res}
         
-        }
-         })
-
-    };
+            }
+        })
+    }
    
     static azert =(req=request,res=response)=>{
         
@@ -34,8 +34,7 @@ const controlle = class{
                 }
                 else{
                     res.render('../views/formulaire',{resultat})
-                    
-                    // console.log(resultat);
+                    console.log(resultat);
                 }
             })
            
@@ -49,33 +48,52 @@ const controlle = class{
             }
             else{
                 res.render('../views/index',{resultat})
-                
-                // console.log(resultat);
+                 console.log(resultat);
             }
         })
-    }    
-
+    }; 
     
     
-
    
-}
+};
+
 module.exports = controlle;
 
 
 
- // static azert = function(req,res){
-    //     let id = req.params.id
-    //     connect.query('delete FROM utilisateurs WHERE id = ?',id, function(error,resultat){
+ // static supprimer=(req=request,res=response)=>{
+    //     const id = req.params.id;
+    //     conexion.query('DELETE FROM utilisateurs WHERE id = ?',[id], (error, results,next)=>{
     //         if(error){
     //             console.log(error);
-    //             return('echec',error)
-    //         }
-    //         else{
-    //             // res.render('../views/index')
-    //             //  console.log("ok",resultat);
-    //              res.redirect('/')
+    //         }else{   
+    //             console.log("zertyui");        
+    //             res.redirect('/');         
     //         }
     //     })
+    // };
 
-    // }
+    // static modifie =(req=request,res=response)=>{    
+    //         const id = req.params.id;
+    //         conexion.query('SELECT * FROM utilisateurs WHERE id=?',[id] , (error, resultat) => {
+    //             if (error) {
+    //                 throw error;
+    //             }else{            
+                
+    //                 res.render('../views/formulaire',{resultat:resultat[0]})           
+    //             }        
+    //         });
+    // };
+    // static modifie =(req=request,res=response)=>{
+    //         const prenom = req.body.prenom;
+    //         const password = req.body.password;
+    //         const email = req.body.email;
+    //         const numero = req.body.numero;
+    //     conexion.query('UPDATE utilisateurs  SET ? WHERE id = ?',[{nom:nom, prenom:prenom,password:password, email:email,numero:numero}, id], (error, resultat)=>{
+    //         if(error){
+    //             console.log(error);
+    //         }else{           
+    //             res.redirect('/');         
+    //         }
+    // });
+    // };
